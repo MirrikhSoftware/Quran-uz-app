@@ -47,6 +47,10 @@ flutter:
     - family: Me-Quran
       fonts:
         - asset: assets/fonts/arabic/Me-Quran-Regular.ttf
+    
+    - family: Al-Qalam
+      fonts:
+        - asset: assets/fonts/arabic/al-qalam-kitab.ttf
 
     - family: Amiri
       fonts:
