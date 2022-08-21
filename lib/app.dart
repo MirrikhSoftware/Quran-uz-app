@@ -21,6 +21,7 @@ class App extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: AppTheme().light,
+          navigatorKey: AppNavigator.navigatorKey,
           initialRoute: RouteNames.home,
           onGenerateRoute: routes.onGenerateRoute,
         ),
