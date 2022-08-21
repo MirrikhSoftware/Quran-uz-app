@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/core/core.dart';
 
 class AppIconButton extends StatelessWidget {
   final IconData icon;
@@ -11,9 +12,20 @@ class AppIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: onPressed,
-      icon: Icon(icon),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.primary,width: 2.w),
+        borderRadius: BorderRadius.circular(32.sp)
+      ),
+      child: IconButton(
+        onPressed: onPressed,
+        iconSize: 20,
+        icon: Icon(icon),
+        // padding: EdgeInsets.zero,
+        constraints: const BoxConstraints(),
+        splashRadius: 24.r,
+
+      ),
     );
   }
 }

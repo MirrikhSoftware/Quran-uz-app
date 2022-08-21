@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran/bloc/sura/sura_bloc.dart';
 import 'package:quran/core/components/app_packages.dart';
+import 'package:quran/core/constants/app_colors.dart';
+import 'package:quran/core/constants/app_images.dart';
 import 'package:quran/view/widgets/verse_list_tile.dart';
 import 'dart:math' as math;
 
@@ -18,6 +20,15 @@ class SuraScreen extends StatelessWidget {
               SliverAppBar(
                 floating: true,
                 title: Text(sura.nameUz!),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 24.h, bottom: 24.h),
+                  child: SvgPicture.asset(
+                    AppImages.basmalah,
+                    color: AppColors.black,
+                  ),
+                ),
               ),
               _showList(sura),
             ],
@@ -52,7 +63,7 @@ class SuraScreen extends StatelessWidget {
         verses.add(verse);
       }
     }
-  
+
     return verses;
   }
 }

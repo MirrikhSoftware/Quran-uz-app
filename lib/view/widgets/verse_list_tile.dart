@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/components/app_packages.dart';
+import 'package:quran/view/widgets/buttons/app_icon_button.dart';
 
 class VerseListTile extends StatelessWidget {
   final Verse verse;
@@ -19,20 +20,34 @@ class VerseListTile extends StatelessWidget {
               textAlign: TextAlign.start,
               locale: const Locale('ar'),
               textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontSize: 32.sp,
+              style: const TextStyle(
+                fontSize: 32,
                 fontFamily: 'Al-Qalam',
-                wordSpacing: 12.sp,
-                height: 1
+                wordSpacing: 12,
+                height: 1,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
-          
-          Text(verse.meaning!),
+          Text(
+            verse.meaning!,
+            style: const TextStyle(
+              fontSize: 18,
+            ),
+          ),
           SizedBox(height: 12.h),
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              
+              AppIconButton(
+                icon: Icons.share,
+                onPressed: () {},
+              ),
+              SizedBox(width: 12.w),
+              AppIconButton(
+                icon: Icons.copy,
+                onPressed: () {},
+              ),
             ],
           )
         ],
