@@ -22,7 +22,7 @@ class App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme().light,
           navigatorKey: AppNavigator.navigatorKey,
-          initialRoute: RouteNames.home,
+          initialRoute: RouteNames.initial,
           onGenerateRoute: routes.onGenerateRoute,
         ),
       ),

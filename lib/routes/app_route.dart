@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:quran/routes/routes.dart';
 import 'package:quran/view/screens/screens.dart';
+import 'package:quran/view/screens/splash/splash_screen.dart';
 
 class AppRoutes {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case RouteNames.initial:
+        return _route(const SplashScreen());
+
       case RouteNames.home:
         return _route(const HomeScreen());
 
