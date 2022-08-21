@@ -7,16 +7,31 @@ class VerseListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          verse.arabic!,
-          locale: const Locale('ar'),
-          textDirection: TextDirection.rtl,
-        ),
-
-        Text(verse.meaning!),
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              verse.arabic!,
+              textAlign: TextAlign.start,
+              locale: const Locale('ar'),
+              textDirection: TextDirection.rtl,
+              style: TextStyle(
+                fontSize: 32.sp,
+                fontFamily: 'Al-Qalam',
+                wordSpacing: 12.sp,
+                height: 1
+              ),
+            ),
+          ),
+          
+          Text(verse.meaning!),
+          SizedBox(height: 12.h),
+        ],
+      ),
     );
   }
 }

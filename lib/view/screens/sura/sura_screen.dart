@@ -16,15 +16,10 @@ class SuraScreen extends StatelessWidget {
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
+                floating: true,
                 title: Text(sura.nameUz!),
               ),
-              SliverList(
-                delegate: SliverChildListDelegate(_getVerseList(sura.id!)
-                    .map(
-                      (e) => VerseListTile(verse: e),
-                    )
-                    .toList()),
-              )
+              _verseList(sura),
             ],
           ),
         );
@@ -32,15 +27,34 @@ class SuraScreen extends StatelessWidget {
     );
   }
 
+  SliverToBoxAdapter _verseList(Sura sura) {
+    List<Verse> verses = _getVerseList(sura.id!);
+    return SliverToBoxAdapter(
+      child: ListView.separated(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: verses.length,
+        separatorBuilder: (ctx, i) => Divider(),
+        itemBuilder: (ctx, i) {
+          Verse verse = verses[i];
+          return VerseListTile(verse: verse);
+        },
+      ),
+    );
+  }
+
   List<Verse> _getVerseList(int suraId) {
     QuranUz quranUz = QuranUz();
     List<Verse> verses = [];
-
+    int init = DateTime.now().millisecondsSinceEpoch;
     for (var verse in quranUz.verses) {
       if (suraId == verse.suraId) {
         verses.add(verse);
       }
     }
+    int end = DateTime.now().millisecondsSinceEpoch;
+    print(end - init);
+
     return verses;
   }
 }
