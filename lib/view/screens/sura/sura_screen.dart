@@ -1,11 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:quran/bloc/sura/sura_bloc.dart';
 import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/view/widgets/verse_list_tile.dart';
+import 'dart:math' as math;
 
-class SuraScreen extends StatelessWidget {
+class SuraScreen extends StatefulWidget {
   const SuraScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SuraScreen> createState() => _SuraScreenState();
+}
+
+class _SuraScreenState extends State<SuraScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SuraBloc, SuraState>(
@@ -19,7 +27,7 @@ class SuraScreen extends StatelessWidget {
                 floating: true,
                 title: Text(sura.nameUz!),
               ),
-              _verseList(sura),
+              _showList(sura),
             ],
           ),
         );
@@ -27,18 +35,20 @@ class SuraScreen extends StatelessWidget {
     );
   }
 
-  SliverToBoxAdapter _verseList(Sura sura) {
-    List<Verse> verses = _getVerseList(sura.id!);
-    return SliverToBoxAdapter(
-      child: ListView.separated(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: verses.length,
-        separatorBuilder: (ctx, i) => Divider(),
-        itemBuilder: (ctx, i) {
-          Verse verse = verses[i];
-          return VerseListTile(verse: verse);
+  SliverList _showList(Sura sura) {
+    List<Verse> verseList = _getVerseList(sura.id!);
+    return SliverList(
+
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+           final int itemIndex = index ~/ 2;
+           if (index.isEven) {
+            Verse verse = verseList[itemIndex];
+            return VerseListTile(verse: verse);
+           }
+           return Divider();
         },
+        childCount: math.max(0, verseList.length * 2 - 1),
       ),
     );
   }
@@ -46,15 +56,11 @@ class SuraScreen extends StatelessWidget {
   List<Verse> _getVerseList(int suraId) {
     QuranUz quranUz = QuranUz();
     List<Verse> verses = [];
-    int init = DateTime.now().millisecondsSinceEpoch;
     for (var verse in quranUz.verses) {
       if (suraId == verse.suraId) {
         verses.add(verse);
       }
     }
-    int end = DateTime.now().millisecondsSinceEpoch;
-    print(end - init);
-
     return verses;
   }
 }
