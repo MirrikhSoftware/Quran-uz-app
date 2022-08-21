@@ -6,5 +6,9 @@ class AppTheme {
         canvasColor: AppColors.background,
         primaryColor: AppColors.primary,
         buttonTheme: ButtonThemeData(),
+        appBarTheme: AppBarTheme(
+          backgroundColor: AppColors.primary,
+          
+        )
       );
 }

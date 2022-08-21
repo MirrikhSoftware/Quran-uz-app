@@ -30,6 +30,11 @@ class VerseListTile extends StatelessWidget {
           
           Text(verse.meaning!),
           SizedBox(height: 12.h),
+          Row(
+            children: [
+              
+            ],
+          )
         ],
       ),
     );
