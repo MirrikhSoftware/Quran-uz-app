@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran/bloc/sura/sura_bloc.dart';
 import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/core/theme/app_theme.dart';
 import 'package:quran/routes/routes.dart';
@@ -12,11 +14,16 @@ class App extends StatelessWidget {
 
     return ScreenUtilInit(
       designSize: const Size(375.0, 812.0),
-      builder: (ctx, w) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme().light,
-        initialRoute: RouteNames.home,
-        onGenerateRoute: routes.onGenerateRoute,
+      builder: (ctx, w) => MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => SuraBloc()),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme().light,
+          initialRoute: RouteNames.home,
+          onGenerateRoute: routes.onGenerateRoute,
+        ),
       ),
     );
   }
