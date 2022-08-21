@@ -9,11 +9,11 @@ class SuraListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      // onTap: _onTap,
+      onTap: () {},
       leading: Stack(
         alignment: Alignment.center,
         children: [
-          SvgPicture.asset(AppIcons.hexagon),
+          SvgPicture.asset(AppIcons.hexagon, color: AppColors.primary),
           Text(surah.id.toString())
         ],
       ),
