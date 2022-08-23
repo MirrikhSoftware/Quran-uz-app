@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quran/app.dart';
+import 'package:quran/hive_helper/hive_init.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HiveInit.init();
   runApp(const App());
 }
 

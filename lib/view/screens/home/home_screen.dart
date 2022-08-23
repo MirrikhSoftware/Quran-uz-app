@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/core.dart';
+import 'package:quran/routes/app_navigator.dart';
+import 'package:quran/view/screens/home/test_page.dart';
+import 'package:quran/view/widgets/buttons/app_icon_button.dart';
 import 'package:quran/view/widgets/sura_list_tile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,14 +18,23 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          AppIconButton(
+            icon: Icons.route,
+            onPressed: () {
+              AppNavigator.push(TestPage());
+            },
+          ),
+        ],
+      ),
       backgroundColor: AppColors.white,
       body: Scrollbar(
         controller: _scrollController,
         child: ListView.separated(
           controller: _scrollController,
           itemCount: _quranUz.suraList.length,
-          separatorBuilder: (ctx, i) =>  Divider(height: 2.h) ,
+          separatorBuilder: (ctx, i) => Divider(height: 2.h),
           itemBuilder: (ctx, i) {
             Sura sura = _quranUz.suraList[i];
             return SuraListTile(surah: sura);

@@ -28,13 +28,13 @@ class VerseModel extends HiveObject {
 
   VerseModel.fromJson(dynamic json) {
     id = json['id'];
-    paraNo = json['parano'];
-    suraId = json['suraid'];
-    verseId = json['verseid'];
+    paraNo = json['para_no'];
+    suraId = json['sura_id'];
+    verseId = json['verse_id'];
     plain = json['plain'];
     arabic = json['arabic'];
     meaning = json['meaning'];
-    isSaved = json['issaved'];
+    isSaved = json['is_saved'] ?? false;
   }
 
   @HiveField(0)
@@ -76,13 +76,13 @@ class VerseModel extends HiveObject {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
-    map['parano'] = paraNo;
-    map['suraid'] = suraId;
-    map['verseid'] = verseId;
+    map['para_no'] = paraNo;
+    map['sura_id'] = suraId;
+    map['verse_id'] = verseId;
     map['plain'] = plain;
     map['arabic'] = arabic;
     map['meaning'] = meaning;
-    map['issaved'] = isSaved;
+    map['is_saved'] = isSaved;
     return map;
   }
 
