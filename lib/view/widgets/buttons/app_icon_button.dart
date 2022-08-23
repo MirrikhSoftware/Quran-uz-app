@@ -19,9 +19,9 @@ class AppIconButton extends StatelessWidget {
       ),
       child: IconButton(
         onPressed: onPressed,
-        iconSize: 20,
+        iconSize: 18,
         icon: Icon(icon),
-        // padding: EdgeInsets.zero,
+        padding: EdgeInsets.all(4.sp),
         constraints: const BoxConstraints(),
         splashRadius: 24.r,
 

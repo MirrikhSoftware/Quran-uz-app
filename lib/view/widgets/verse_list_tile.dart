@@ -48,6 +48,11 @@ class VerseListTile extends StatelessWidget {
                 icon: Icons.copy,
                 onPressed: () {},
               ),
+              SizedBox(width: 12.w),
+              AppIconButton(
+                icon: Icons.bookmark_border,
+                onPressed: () {},
+              )
             ],
           )
         ],

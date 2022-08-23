@@ -17,14 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(),
       backgroundColor: AppColors.white,
-      body: ListView.separated(
+      body: Scrollbar(
         controller: _scrollController,
-        itemCount: _quranUz.suraList.length,
-        separatorBuilder: (ctx, i) =>  Divider(height: 1.h),
-        itemBuilder: (ctx, i) {
-          Sura sura = _quranUz.suraList[i];
-          return SuraListTile(surah: sura);
-        },
+        child: ListView.separated(
+          controller: _scrollController,
+          itemCount: _quranUz.suraList.length,
+          separatorBuilder: (ctx, i) =>  Divider(height: 2.h) ,
+          itemBuilder: (ctx, i) {
+            Sura sura = _quranUz.suraList[i];
+            return SuraListTile(surah: sura);
+          },
+        ),
       ),
     );
   }
