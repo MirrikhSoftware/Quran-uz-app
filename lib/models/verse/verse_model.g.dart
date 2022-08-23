@@ -6,7 +6,7 @@ part of 'verse_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class VersionModelAdaptercha extends TypeAdapter<VerseModel> {
+class VersionModelAdapter extends TypeAdapter<VerseModel> {
   @override
   final int typeId = 0;
 
@@ -16,15 +16,16 @@ class VersionModelAdaptercha extends TypeAdapter<VerseModel> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return VerseModel()
-      .._id = fields[0] as int
-      .._paraNo = fields[1] as int
-      .._suraId = fields[2] as int
-      .._verseId = fields[3] as int
-      .._plain = fields[4] as String
-      .._arabic = fields[5] as String
-      .._meaning = fields[6] as String
-      .._isSaved = fields[7] as bool;
+    return VerseModel(
+      id: fields[0] as int?,
+      paraNo: fields[1] as int?,
+      suraId: fields[2] as int?,
+      verseId: fields[3] as int?,
+      plain: fields[4] as String?,
+      arabic: fields[5] as String?,
+      meaning: fields[6] as String?,
+      isSaved: fields[7] as bool,
+    );
   }
 
   @override
@@ -32,21 +33,21 @@ class VersionModelAdaptercha extends TypeAdapter<VerseModel> {
     writer
       ..writeByte(8)
       ..writeByte(0)
-      ..write(obj._id)
+      ..write(obj.id)
       ..writeByte(1)
-      ..write(obj._paraNo)
+      ..write(obj.paraNo)
       ..writeByte(2)
-      ..write(obj._suraId)
+      ..write(obj.suraId)
       ..writeByte(3)
-      ..write(obj._verseId)
+      ..write(obj.verseId)
       ..writeByte(4)
-      ..write(obj._plain)
+      ..write(obj.plain)
       ..writeByte(5)
-      ..write(obj._arabic)
+      ..write(obj.arabic)
       ..writeByte(6)
-      ..write(obj._meaning)
+      ..write(obj.meaning)
       ..writeByte(7)
-      ..write(obj._isSaved);
+      ..write(obj.isSaved);
   }
 
   @override
@@ -55,7 +56,7 @@ class VersionModelAdaptercha extends TypeAdapter<VerseModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is VersionModelAdaptercha &&
+      other is VersionModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
