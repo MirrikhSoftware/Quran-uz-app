@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uz.mirrikh.quran">
    <application
-        android:label="quran"
+        android:label="Qur'oni karim"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
