@@ -27,10 +27,8 @@ class SuraListTile extends StatelessWidget {
       title: Text(
         surah.nameUz!,
       ),
-      subtitle: Text('MACCA ${surah.versesCount} OYAT'),
-      trailing: Text(
-        surah.nameAr!,
-      ),
+      subtitle: Text('${surah.versesCount} OYAT'),
+      trailing: Text(surah.nameAr!),
     );
   }
 }

@@ -16,6 +16,8 @@ class SuraScreen extends StatelessWidget {
         Sura sura = suraBloc.sura;
         return Scaffold(
           body: CustomScrollView(
+           
+            physics: const BouncingScrollPhysics(),
             slivers: [
               SliverAppBar(
                 floating: true,
@@ -41,16 +43,19 @@ class SuraScreen extends StatelessWidget {
   SliverList _showList(Sura sura) {
     List<Verse> verseList = _getVerseList(sura.id!);
     return SliverList(
+
       delegate: SliverChildBuilderDelegate(
+
         (context, index) {
           final int itemIndex = index ~/ 2;
           if (index.isEven) {
             Verse verse = verseList[itemIndex];
             return VerseListTile(verse: verse);
           }
-          return Divider(thickness: 1.h);
+          return Divider(thickness: 1.h, height: 24.h);
         },
         childCount: math.max(0, verseList.length * 2 - 1),
+
       ),
     );
   }

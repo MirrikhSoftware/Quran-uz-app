@@ -11,9 +11,24 @@ class AppTheme {
           backgroundColor: AppColors.primary,
         ),
         scrollbarTheme: ScrollbarThemeData(
-          interactive: true,
-          crossAxisMargin: 6.w,
-          radius: Radius.circular(3.r),
+            interactive: true,
+            crossAxisMargin: 6.w,
+            radius: Radius.circular(3.r),
+            thumbColor: MaterialStateProperty.all<Color>(AppColors.primary)),
+      );
+
+  ThemeData get green => ThemeData(
+        // canvasColor: AppColors.background,
+        primaryColor: AppColors.green,
+        iconTheme: const IconThemeData(color: AppColors.green),
+        buttonTheme: const ButtonThemeData(buttonColor: AppColors.green),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.green,
         ),
+        scrollbarTheme: ScrollbarThemeData(
+            interactive: true,
+            crossAxisMargin: 6.w,
+            radius: Radius.circular(3.r),
+            thumbColor: MaterialStateProperty.all<Color>(AppColors.green)),
       );
 }
