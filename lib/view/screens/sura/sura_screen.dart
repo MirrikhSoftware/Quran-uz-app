@@ -3,25 +3,35 @@ import 'package:quran/bloc/sura/sura_bloc.dart';
 import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/core/constants/app_colors.dart';
 import 'package:quran/core/constants/app_images.dart';
+import 'package:quran/hive_helper/hive_boxes.dart';
+import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/verse_list_tile.dart';
 import 'dart:math' as math;
 
-class SuraScreen extends StatelessWidget {
+class SuraScreen extends StatefulWidget {
   const SuraScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SuraScreen> createState() => _SuraScreenState();
+}
+
+class _SuraScreenState extends State<SuraScreen> {
+  late final SuraBloc _suraBloc = BlocProvider.of(context);
+  late final Sura _sura = _suraBloc.sura;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SuraBloc, SuraState>(
-      builder: (context, state) {
-        SuraBloc suraBloc = context.watch();
-        Sura sura = suraBloc.sura;
-        return Scaffold(
-          body: CustomScrollView(
-           
+    return Scaffold(
+      body: ValueListenableBuilder(
+        valueListenable: HiveBoxes.verseBox.listenable(),
+        builder: (context, Box<VerseModel> box, child) {
+          List<VerseModel> verses =
+              box.values.where((verse) => verse.suraId == _sura.id).toList();
+          return CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [
               SliverAppBar(
                 floating: true,
-                title: Text(sura.nameUz!),
+                title: Text(_sura.nameUz!),
               ),
               SliverToBoxAdapter(
                 child: Padding(
@@ -32,43 +42,23 @@ class SuraScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              _showList(sura),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    final int itemIndex = index ~/ 2;
+                    if (index.isEven) {
+                      VerseModel verse = verses[itemIndex];
+                      return VerseListTile(verse: verse);
+                    }
+                    return Divider(thickness: 1.h, height: 24.h);
+                  },
+                  childCount: math.max(0, verses.length * 2 - 1),
+                ),
+              )
             ],
-          ),
-        );
-      },
-    );
-  }
-
-  SliverList _showList(Sura sura) {
-    List<Verse> verseList = _getVerseList(sura.id!);
-    return SliverList(
-
-      delegate: SliverChildBuilderDelegate(
-
-        (context, index) {
-          final int itemIndex = index ~/ 2;
-          if (index.isEven) {
-            Verse verse = verseList[itemIndex];
-            return VerseListTile(verse: verse);
-          }
-          return Divider(thickness: 1.h, height: 24.h);
+          );
         },
-        childCount: math.max(0, verseList.length * 2 - 1),
-
       ),
     );
-  }
-
-  List<Verse> _getVerseList(int suraId) {
-    QuranUz quranUz = QuranUz();
-    List<Verse> verses = [];
-    for (var verse in quranUz.verses) {
-      if (suraId == verse.suraId) {
-        verses.add(verse);
-      }
-    }
-
-    return verses;
   }
 }

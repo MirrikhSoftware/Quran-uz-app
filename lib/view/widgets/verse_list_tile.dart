@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/components/app_packages.dart';
+import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/app_icon_button.dart';
 
 class VerseListTile extends StatelessWidget {
-  final Verse verse;
+  final VerseModel verse;
   const VerseListTile({Key? key, required this.verse}) : super(key: key);
 
   @override
@@ -50,8 +51,13 @@ class VerseListTile extends StatelessWidget {
               ),
               SizedBox(width: 12.w),
               AppIconButton(
-                icon: Icons.bookmark_border,
-                onPressed: () {},
+                icon: verse.isSaved
+                    ? Icons.bookmark
+                    : Icons.bookmark_border,
+                onPressed: () async {
+                   verse.isSaved = !verse.isSaved;
+                   await verse.save();
+                },
               )
             ],
           )
