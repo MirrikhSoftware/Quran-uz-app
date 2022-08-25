@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/components/app_formatter.dart';
 import 'package:quran/core/components/app_packages.dart';
+import 'package:quran/core/constants/app_colors.dart';
+import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/app_icon_button.dart';
 
@@ -27,13 +29,14 @@ class VerseListTile extends StatelessWidget {
               textDirection: TextDirection.rtl,
               style: const TextStyle(
                 fontSize: 32,
-                fontFamily: 'Al-Qalam',
+                fontFamily: AppFonts.meQuran,
                 wordSpacing: 12,
                 height: 1,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
+          SizedBox(height: 20.h),
           Text(
             verse.meaning!,
             style: const TextStyle(
@@ -55,12 +58,10 @@ class VerseListTile extends StatelessWidget {
               ),
               SizedBox(width: 12.w),
               AppIconButton(
-                icon: verse.isSaved
-                    ? Icons.bookmark
-                    : Icons.bookmark_border,
+                icon: verse.isSaved ? Icons.bookmark : Icons.bookmark_border,
                 onPressed: () async {
-                   verse.isSaved = !verse.isSaved;
-                   await verse.save();
+                  verse.isSaved = !verse.isSaved;
+                  await verse.save();
                 },
               )
             ],
