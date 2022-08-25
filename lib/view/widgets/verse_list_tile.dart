@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/core/components/app_formatter.dart';
 import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/app_icon_button.dart';
@@ -9,6 +10,9 @@ class VerseListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppFormatter formatter = AppFormatter();
+    String number = formatter.numberFormat(verse.verseId!);
+    String formatted = '\uFD3F$number\uFD3E';
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -17,7 +21,7 @@ class VerseListTile extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Text(
-              verse.arabic!,
+              '${verse.arabic!.replaceFirst('\n', '')} $formatted',
               textAlign: TextAlign.start,
               locale: const Locale('ar'),
               textDirection: TextDirection.rtl,
