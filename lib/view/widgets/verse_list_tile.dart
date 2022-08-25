@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quran/core/components/app_formatter.dart';
 import 'package:quran/core/components/app_packages.dart';
-import 'package:quran/core/constants/app_colors.dart';
 import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/app_icon_button.dart';
@@ -31,14 +31,14 @@ class VerseListTile extends StatelessWidget {
                 fontSize: 32,
                 fontFamily: AppFonts.meQuran,
                 wordSpacing: 12,
-                height: 1,
+                height: 1.8,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
           SizedBox(height: 20.h),
           Text(
-            verse.meaning!,
+            '${verse.verseId}. ${verse.meaning}',
             style: const TextStyle(
               fontSize: 18,
             ),
@@ -47,16 +47,23 @@ class VerseListTile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+
+              // SHARE
               AppIconButton(
                 icon: Icons.share,
-                onPressed: () {},
+                onPressed: _onShare,
               ),
+
               SizedBox(width: 12.w),
+
+              // COPY
               AppIconButton(
                 icon: Icons.copy,
-                onPressed: () {},
+                onPressed: _onCopyPressed,
               ),
               SizedBox(width: 12.w),
+
+              // SAVE
               AppIconButton(
                 icon: verse.isSaved ? Icons.bookmark : Icons.bookmark_border,
                 onPressed: () async {
@@ -69,5 +76,16 @@ class VerseListTile extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _onCopyPressed() async {
+    AppFormatter formatter = AppFormatter();
+    String clipboardText = formatter.formatClipboard(verse);
+    await Clipboard.setData(ClipboardData(text: clipboardText));
+  }
+
+  Future<void> _onShare() async {
+    // var data = await Clipboard.getData(Clipboard.kTextPlain);
+    // print(data?.text);
   }
 }
