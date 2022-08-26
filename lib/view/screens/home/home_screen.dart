@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quran/core/core.dart';
 import 'package:quran/routes/app_navigator.dart';
 import 'package:quran/view/screens/home/test_page.dart';
+import 'package:quran/view/widgets/buttons/app_icon_button.dart';
 import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
 import 'package:quran/view/widgets/sura_list_tile.dart';
 
@@ -21,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          RoundedIconButton(icon: CupertinoIcons.search, onPressed: () {})
+          AppIconButton(icon: AppIcons.search, onPressed: () {}),
         ],
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
       backgroundColor: AppColors.white,
       body: Scrollbar(
         controller: _scrollController,
