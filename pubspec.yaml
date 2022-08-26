@@ -2,7 +2,7 @@ name: quran
 description: Qur'an Application.
 
 
-version: 0.1.10+3
+version: 0.2.0+4
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
