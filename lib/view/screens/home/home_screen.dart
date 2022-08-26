@@ -18,16 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          AppIconButton(
-            icon: Icons.route,
-            onPressed: () {
-              AppNavigator.push(TestPage());
-            },
-          ),
-        ],
-      ),
+      appBar: AppBar(),
+      drawer: Drawer(),
       backgroundColor: AppColors.white,
       body: Scrollbar(
         controller: _scrollController,

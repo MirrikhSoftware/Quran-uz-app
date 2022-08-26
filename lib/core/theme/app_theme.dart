@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quran/core/core.dart';
 
 class AppTheme {
   ThemeData get light => ThemeData(
         // canvasColor: AppColors.background,
+
         primaryColor: AppColors.primary,
         iconTheme: const IconThemeData(color: AppColors.primary),
         buttonTheme: const ButtonThemeData(buttonColor: AppColors.primary),
         appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.primary,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(color: AppColors.primary),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.dark
+          )
         ),
+        
         scrollbarTheme: ScrollbarThemeData(
             interactive: true,
             crossAxisMargin: 6.w,

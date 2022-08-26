@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran/bloc/sura/sura_bloc.dart';
 import 'package:quran/core/core.dart';
+import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/routes/app_navigator.dart';
 import 'package:quran/routes/routes.dart';
 
@@ -27,8 +28,12 @@ class SuraListTile extends StatelessWidget {
       title: Text(
         surah.nameUz!,
       ),
-      subtitle: Text('${surah.versesCount} OYAT'),
-      trailing: Text(surah.nameAr!),
+      subtitle: Text('${surah.versesCount} оят'),
+      trailing: Text(surah.nameAr!,style: TextStyle(
+        fontFamily: AppFonts.meQuran,
+        color: AppColors.primary,
+        fontSize: 20.sp
+      ),),
     );
   }
 }

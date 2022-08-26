@@ -35,11 +35,24 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: AppColors.primary,
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(AppImages.sky),
+            // BookLogo(),
+            SizedBox(height: 25.h),
+            SvgPicture.asset(AppImages.book),
+          ],
+        ),
+      ),
+    );
   }
 
   Future _saveToStorage() async {
-
     final QuranUz quranUz = QuranUz();
 
     Map<int, VerseModel> entries = {};
