@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/core.dart';
 
-class AppIconButton extends StatelessWidget {
+class RoundedIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
-  const AppIconButton({
+  const RoundedIconButton({
     Key? key,
     required this.icon,
     required this.onPressed,
@@ -14,9 +14,8 @@ class AppIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.primary,width: 2.w),
-        borderRadius: BorderRadius.circular(32.sp)
-      ),
+          border: Border.all(color: AppColors.primary, width: 2.w),
+          borderRadius: BorderRadius.circular(32.sp)),
       child: IconButton(
         onPressed: onPressed,
         iconSize: 18,
@@ -24,7 +23,6 @@ class AppIconButton extends StatelessWidget {
         padding: EdgeInsets.all(4.sp),
         constraints: const BoxConstraints(),
         splashRadius: 24.r,
-
       ),
     );
   }

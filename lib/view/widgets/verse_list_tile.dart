@@ -4,7 +4,7 @@ import 'package:quran/core/components/app_formatter.dart';
 import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/models/verse/verse_model.dart';
-import 'package:quran/view/widgets/buttons/app_icon_button.dart';
+import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
 
 class VerseListTile extends StatelessWidget {
   final VerseModel verse;
@@ -47,9 +47,8 @@ class VerseListTile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-
               // SHARE
-              AppIconButton(
+              RoundedIconButton(
                 icon: Icons.share,
                 onPressed: _onShare,
               ),
@@ -57,14 +56,14 @@ class VerseListTile extends StatelessWidget {
               SizedBox(width: 12.w),
 
               // COPY
-              AppIconButton(
+              RoundedIconButton(
                 icon: Icons.copy,
                 onPressed: _onCopyPressed,
               ),
               SizedBox(width: 12.w),
 
               // SAVE
-              AppIconButton(
+              RoundedIconButton(
                 icon: verse.isSaved ? Icons.bookmark : Icons.bookmark_border,
                 onPressed: () async {
                   verse.isSaved = !verse.isSaved;

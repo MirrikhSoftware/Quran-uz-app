@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/core/core.dart';
 import 'package:quran/routes/app_navigator.dart';
 import 'package:quran/view/screens/home/test_page.dart';
-import 'package:quran/view/widgets/buttons/app_icon_button.dart';
+import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
 import 'package:quran/view/widgets/sura_list_tile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,7 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          RoundedIconButton(icon: CupertinoIcons.search, onPressed: () {})
+        ],
+      ),
       drawer: Drawer(),
       backgroundColor: AppColors.white,
       body: Scrollbar(
