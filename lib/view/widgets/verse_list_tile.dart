@@ -5,6 +5,7 @@ import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
+import 'package:share_plus/share_plus.dart';
 
 class VerseListTile extends StatelessWidget {
   final VerseModel verse;
@@ -56,11 +57,11 @@ class VerseListTile extends StatelessWidget {
               SizedBox(width: 12.w),
 
               // COPY
-              RoundedIconButton(
-                icon: Icons.copy,
-                onPressed: _onCopyPressed,
-              ),
-              SizedBox(width: 12.w),
+              // RoundedIconButton(
+              //   icon: Icons.copy,
+              //   onPressed: _onCopyPressed,
+              // ),
+              // SizedBox(width: 12.w),
 
               // SAVE
               RoundedIconButton(
@@ -84,6 +85,12 @@ class VerseListTile extends StatelessWidget {
   }
 
   Future<void> _onShare() async {
+    AppFormatter formatter = AppFormatter();
+    String clipboardText = formatter.formatClipboard(verse);
+    Share.share(clipboardText);
+    
+
+    
     // var data = await Clipboard.getData(Clipboard.kTextPlain);
     // print(data?.text);
   }
