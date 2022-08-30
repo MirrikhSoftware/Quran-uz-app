@@ -54,7 +54,8 @@ class _SuraScreenState extends State<SuraScreen> {
                   },
                   childCount: math.max(0, verses.length * 2 - 1),
                 ),
-              )
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 24.h))
             ],
           );
         },

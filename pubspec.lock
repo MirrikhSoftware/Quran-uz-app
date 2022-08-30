@@ -497,10 +497,10 @@ packages:
   quran_uz:
     dependency: "direct main"
     description:
-      path: "../../FlutterPackages/quran_uz"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: quran_uz
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   shelf:
     dependency: transitive
     description:

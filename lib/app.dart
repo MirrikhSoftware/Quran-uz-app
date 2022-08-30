@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: AppTheme().light,
+          theme: AppTheme().indigo,
           navigatorKey: AppNavigator.navigatorKey,
           initialRoute: RouteNames.initial,
           onGenerateRoute: routes.onGenerateRoute,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/bloc/sura/sura_bloc.dart';
 import 'package:quran/core/core.dart';
 import 'package:quran/core/theme/app_fonts.dart';
-import 'package:quran/routes/app_navigator.dart';
 import 'package:quran/routes/routes.dart';
 
 class SuraListTile extends StatelessWidget {
@@ -21,7 +20,7 @@ class SuraListTile extends StatelessWidget {
       leading: Stack(
         alignment: Alignment.center,
         children: [
-          SvgPicture.asset(AppIcons.hexagon, color: AppColors.primary),
+          SvgPicture.asset(AppIcons.hexagon, color: AppColors.indigo),
           Text(surah.id.toString())
         ],
       ),
@@ -31,7 +30,7 @@ class SuraListTile extends StatelessWidget {
       subtitle: Text('${surah.versesCount} оят'),
       trailing: Text(surah.nameAr!,style: TextStyle(
         fontFamily: AppFonts.meQuran,
-        color: AppColors.primary,
+        color: AppColors.indigo,
         fontSize: 20.sp
       ),),
     );
