@@ -7,7 +7,6 @@ class AppSearchDelegate extends SearchDelegate {
   List<VerseModel> verses;
   AppSearchDelegate(this.verses);
 
-
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [];
@@ -46,7 +45,7 @@ class AppSearchDelegate extends SearchDelegate {
               },
             );
           }
-          return SizedBox();
+          return const SizedBox();
         },
       );
 

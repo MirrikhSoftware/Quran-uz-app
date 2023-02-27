@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:quran/core/components/app_formatter.dart';
 import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/core/theme/app_fonts.dart';
@@ -78,19 +77,17 @@ class VerseListTile extends StatelessWidget {
     );
   }
 
-  Future<void> _onCopyPressed() async {
-    AppFormatter formatter = AppFormatter();
-    String clipboardText = formatter.formatClipboard(verse);
-    await Clipboard.setData(ClipboardData(text: clipboardText));
-  }
+  // Future<void> _onCopyPressed() async {
+  //   AppFormatter formatter = AppFormatter();
+  //   String clipboardText = formatter.formatClipboard(verse);
+  //   await Clipboard.setData(ClipboardData(text: clipboardText));
+  // }
 
   Future<void> _onShare() async {
     AppFormatter formatter = AppFormatter();
     String clipboardText = formatter.formatClipboard(verse);
     Share.share(clipboardText);
-    
 
-    
     // var data = await Clipboard.getData(Clipboard.kTextPlain);
     // print(data?.text);
   }
