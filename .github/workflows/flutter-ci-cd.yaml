@@ -78,7 +78,7 @@ jobs:
       - name: Build AAB
 
         run: |
-          flutter build appbundle --release
+          flutter build appbundle --release --build-name v1.0.${{ github.run_number }} --build-version ${{ github.run_number }}
           echo "Removing signing files for extra security"
           rm android/key.*
       # - name: Upload AAB artifact
@@ -108,7 +108,7 @@ jobs:
           track: internal
           status: inProgress
           # inAppUpdatePriority: 2
-          userFraction: 0.2
+          userFraction: 0.99
           # whatsNewDirectory: distribution/whatsnew
           # mappingFile: app/build/outputs/mapping/release/mapping.txt
           # debugSymbols: app/intermediates/merged_native_libs/release/out/lib
@@ -138,5 +138,3 @@ jobs:
             Repository: ${{ github.repository }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
           document: ${{ env.PATH_TO_AAB}}
-
-
