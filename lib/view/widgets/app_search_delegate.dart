@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/core/core.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/routes/app_navigator.dart';
 import 'package:quran/view/widgets/verse_list_tile.dart';
@@ -6,6 +7,24 @@ import 'package:quran/view/widgets/verse_list_tile.dart';
 class AppSearchDelegate extends SearchDelegate {
   List<VerseModel> verses;
   AppSearchDelegate(this.verses);
+
+  @override
+  String? get searchFieldLabel => "Qidiruv";
+
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    return AppTheme().indigo.copyWith(
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: AppColors.white,
+          ),
+          textTheme: const TextTheme(
+            titleLarge: TextStyle(color: AppColors.white),
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+              border: InputBorder.none,
+              hintStyle: TextStyle(color: AppColors.white.withOpacity(0.6))),
+        );
+  }
 
   @override
   List<Widget>? buildActions(BuildContext context) {
