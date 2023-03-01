@@ -48,7 +48,7 @@ class _SuraScreenState extends State<SuraScreen> {
                     final int itemIndex = index ~/ 2;
                     if (index.isEven) {
                       VerseModel verse = verses[itemIndex];
-                      return VerseListTile(verse: verse);
+                      return VerseListTile(verse: verse, query: "");
                     }
                     return Divider(thickness: 1.h, height: 24.h);
                   },

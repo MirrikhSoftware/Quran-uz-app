@@ -41,7 +41,7 @@ class AppSearchDelegate extends SearchDelegate {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 VerseModel verse = snapshot.data![index];
-                return VerseListTile(verse: verse);
+                return VerseListTile(verse: verse, query: query);
               },
             );
           }

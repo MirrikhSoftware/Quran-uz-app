@@ -4,11 +4,17 @@ import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
+import 'package:quran/view/widgets/highlighted_text_widget.dart';
 import 'package:share_plus/share_plus.dart';
 
 class VerseListTile extends StatelessWidget {
   final VerseModel verse;
-  const VerseListTile({Key? key, required this.verse}) : super(key: key);
+  final String query;
+  const VerseListTile({
+    Key? key,
+    required this.verse,
+    required this.query,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +43,16 @@ class VerseListTile extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20.h),
-          Text(
-            '${verse.verseId}. ${verse.meaning}',
-            style: const TextStyle(
-              fontSize: 18,
-            ),
+          HighlightTextWidget(
+            source: '${verse.verseId}. ${verse.meaning}',
+            query: query,
           ),
+          // Text(
+          //   '${verse.verseId}. ${verse.meaning}',
+          //   style: const TextStyle(
+          //     fontSize: 18,
+          //   ),
+          // ),
           SizedBox(height: 12.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
