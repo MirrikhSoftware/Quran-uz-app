@@ -24,17 +24,16 @@ class AppFormatter {
   }
 
   String formatClipboard(VerseModel verse) {
-
     int verseId = verse.verseId!;
     String arabic = verse.arabic!;
     String meaning = verse.meaning!;
     String sura = getSuraById(verse.suraId!);
-    String formatted = '$arabic\n\n$meaning\n\n($sura surasi, $verseId-oyat)';
+    String formatted = '$arabic\n\n$meaning\n\n($sura сураси, $verseId-оят)';
     return formatted;
   }
 
   String getSuraById(int id) {
     QuranUz quranUz = QuranUz();
-    return quranUz.suraList[id -1].nameUz!;
+    return quranUz.suraList[id - 1].nameUz!;
   }
 }

@@ -30,7 +30,8 @@ class _SuraScreenState extends State<SuraScreen> {
             physics: const BouncingScrollPhysics(),
             slivers: [
               SliverAppBar(
-                floating: true,
+                floating: false,
+                pinned: true,
                 title: Text(_sura.nameUz!),
               ),
               SliverToBoxAdapter(

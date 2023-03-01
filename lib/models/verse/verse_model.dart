@@ -38,19 +38,26 @@ class VerseModel extends HiveObject {
   }
 
   @HiveField(0)
-  late int? id;
+  int? id;
+
   @HiveField(1)
-  late int? paraNo;
+  int? paraNo;
+
   @HiveField(2)
-  late int? suraId;
+  int? suraId;
+
   @HiveField(3)
-  late int? verseId;
+  int? verseId;
+
   @HiveField(4)
-  late String? plain;
+  String? plain;
+
   @HiveField(5)
-  late String? arabic;
+  String? arabic;
+
   @HiveField(6)
-  late String? meaning;
+  String? meaning;
+
   @HiveField(7)
   bool isSaved = false;
 

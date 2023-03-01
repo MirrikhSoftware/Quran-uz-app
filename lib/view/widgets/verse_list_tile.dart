@@ -47,12 +47,6 @@ class VerseListTile extends StatelessWidget {
             source: '${verse.verseId}. ${verse.meaning}',
             query: query,
           ),
-          // Text(
-          //   '${verse.verseId}. ${verse.meaning}',
-          //   style: const TextStyle(
-          //     fontSize: 18,
-          //   ),
-          // ),
           SizedBox(height: 12.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -64,13 +58,6 @@ class VerseListTile extends StatelessWidget {
               ),
 
               SizedBox(width: 12.w),
-
-              // COPY
-              // RoundedIconButton(
-              //   icon: Icons.copy,
-              //   onPressed: _onCopyPressed,
-              // ),
-              // SizedBox(width: 12.w),
 
               // SAVE
               RoundedIconButton(

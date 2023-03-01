@@ -106,8 +106,6 @@ jobs:
           packageName: ${{ env.ANDROID_BUNDLE_ID }}
           releaseFiles: ${{ env.PATH_TO_AAB }}
           track: internal
-          status: inProgress
-          userFraction: 1.0
           # whatsNewDirectory: distribution/whatsnew
           # mappingFile: app/build/outputs/mapping/release/mapping.txt
           # debugSymbols: app/intermediates/merged_native_libs/release/out/lib
