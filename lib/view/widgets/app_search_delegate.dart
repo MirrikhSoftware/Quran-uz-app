@@ -82,10 +82,10 @@ class AppSearchDelegate extends SearchDelegate {
                   isTheSame = verse.suraId == foundVerses[index - 1].suraId;
                 }
                 if (!isTheSame) {
-                  Sura sura = _quranUz.getSuraById(verse.suraId!);
+                  // Sura sura = _quranUz.getSuraById(verse.suraId!);
                   return Column(
                     children: [
-                      SuraListTile(surah: sura),
+                      // SuraListTile(surah: sura),
                       VerseListTile(verse: verse, query: query),
                     ],
                   );
