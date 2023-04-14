@@ -4,7 +4,10 @@ import 'package:quran/hive_helper/hive_adapters.dart';
 
 part 'verse_model.g.dart';
 
-@HiveType(typeId: HiveTypes.verseModel, adapterName: HiveAdapters.verseModel)
+@HiveType(
+  typeId: HiveTypes.verseModel,
+  adapterName: HiveAdapters.verseModel,
+)
 class VerseModel extends HiveObject {
   VerseModel({
     this.id,

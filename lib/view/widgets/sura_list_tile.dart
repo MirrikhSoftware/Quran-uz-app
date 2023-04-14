@@ -3,6 +3,7 @@ import 'package:quran/bloc/sura/sura_bloc.dart';
 import 'package:quran/core/core.dart';
 import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/routes/routes.dart';
+import 'package:quran/view/screens/screens.dart';
 
 class SuraListTile extends StatelessWidget {
   final Sura surah;
@@ -13,9 +14,12 @@ class SuraListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        SuraBloc suraBloc = BlocProvider.of(context);
+        SuraBloc suraBloc = SuraBloc();
         suraBloc.add(SuraSelectedEvent(surah));
-        AppNavigator.pushNamed(RouteNames.sura_details);
+        AppNavigator.push(BlocProvider(
+          create: (_) => suraBloc,
+          child: const SuraScreen(),
+        ));
       },
       leading: Stack(
         alignment: Alignment.center,
@@ -28,11 +32,14 @@ class SuraListTile extends StatelessWidget {
         surah.nameUz!,
       ),
       subtitle: Text('${surah.versesCount} оят'),
-      trailing: Text(surah.nameAr!,style: TextStyle(
-        fontFamily: AppFonts.meQuran,
-        color: AppColors.indigo,
-        fontSize: 20.sp
-      ),),
+      trailing: Text(
+        surah.nameAr!,
+        style: const TextStyle(
+          fontFamily: AppFonts.meQuran,
+          color: AppColors.indigo,
+          fontSize: 20.0,
+        ),
+      ),
     );
   }
 }

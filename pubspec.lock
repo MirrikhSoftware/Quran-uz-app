@@ -161,6 +161,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  converter_uz:
+    dependency: "direct main"
+    description:
+      name: converter_uz
+      sha256: "7cea9285ae1a038395ef29a678e2cafe4b075599ecff978a30cb35a6d4656793"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   crypto:
     dependency: transitive
     description:
@@ -238,14 +246,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-  flutter_screenutil:
-    dependency: "direct main"
-    description:
-      name: flutter_screenutil
-      sha256: "8bc686a9e4db21d7e2c8a1761073f6dee088f3d8284a3ad812825bb398ae85a6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.5.3+2"
   flutter_svg:
     dependency: "direct main"
     description:

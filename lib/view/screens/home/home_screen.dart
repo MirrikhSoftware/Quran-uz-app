@@ -33,14 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      // drawer: const Drawer(),
       backgroundColor: AppColors.white,
       body: Scrollbar(
         controller: _scrollController,
         child: ListView.separated(
           controller: _scrollController,
           itemCount: _quranUz.suraList.length,
-          separatorBuilder: (ctx, i) => Divider(height: 2.h),
+          separatorBuilder: (ctx, i) => const Divider(height: 2.0),
           itemBuilder: (ctx, i) {
             Sura sura = _quranUz.suraList[i];
             return SuraListTile(surah: sura);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/components/app_formatter.dart';
-import 'package:quran/core/components/app_packages.dart';
 import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
@@ -22,7 +21,7 @@ class VerseListTile extends StatelessWidget {
     String number = formatter.numberFormat(verse.verseId!);
     String formatted = '\uFD3F$number\uFD3E';
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,12 +41,12 @@ class VerseListTile extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20.h),
+          const SizedBox(height: 20.0),
           HighlightTextWidget(
             source: '${verse.verseId}. ${verse.meaning}',
             query: query,
           ),
-          SizedBox(height: 12.h),
+          const SizedBox(height: 12.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -57,7 +56,7 @@ class VerseListTile extends StatelessWidget {
                 onPressed: _onShare,
               ),
 
-              SizedBox(width: 12.w),
+              const SizedBox(width: 12.0),
 
               // SAVE
               RoundedIconButton(

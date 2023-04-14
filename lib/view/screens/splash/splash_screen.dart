@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:quran/core/core.dart';
-import 'package:quran/hive_helper/app_prefs.dart';
+import 'package:quran/hive_helper/app_pref.dart';
 import 'package:quran/hive_helper/hive_boxes.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/routes/app_navigator.dart';
@@ -20,10 +20,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    if (!AppPrefs.hasSaved) {
+    if (!AppPref.hasSaved) {
       _saveToStorage();
     } else {
-
       Timer(
         const Duration(seconds: 1),
         () {
@@ -44,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             SvgPicture.asset(AppImages.sky),
             // BookLogo(),
-            SizedBox(height: 25.h),
+            const SizedBox(height: 25.0),
             SvgPicture.asset(AppImages.book),
           ],
         ),
@@ -61,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
       entries[verseModel.key] = verseModel;
     }
     await HiveBoxes.verseBox.putAll(entries);
-    await AppPrefs.setSaved();
+    await AppPref.setSaved();
     AppNavigator.pushNamedAndRemoveUntil(RouteNames.home);
   }
 }

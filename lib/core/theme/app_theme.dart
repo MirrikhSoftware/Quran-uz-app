@@ -18,8 +18,8 @@ class AppTheme {
 
         scrollbarTheme: ScrollbarThemeData(
             interactive: true,
-            crossAxisMargin: 6.w,
-            radius: Radius.circular(3.r),
+            crossAxisMargin: 6.0,
+            radius: const Radius.circular(3.0),
             thumbColor: MaterialStateProperty.all<Color>(AppColors.primary)),
       );
 
@@ -33,8 +33,8 @@ class AppTheme {
         ),
         scrollbarTheme: ScrollbarThemeData(
             interactive: true,
-            crossAxisMargin: 6.w,
-            radius: Radius.circular(3.r),
+            crossAxisMargin: 6.0,
+            radius: const Radius.circular(3.0),
             thumbColor: MaterialStateProperty.all<Color>(AppColors.green)),
       );
 
@@ -54,8 +54,8 @@ class AppTheme {
 
         scrollbarTheme: ScrollbarThemeData(
             interactive: true,
-            crossAxisMargin: 6.w,
-            radius: Radius.circular(3.r),
+            crossAxisMargin: 6.0,
+            radius: const Radius.circular(3.0),
             thumbColor: MaterialStateProperty.all<Color>(AppColors.indigo)),
       );
 }

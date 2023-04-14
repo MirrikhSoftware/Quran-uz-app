@@ -26,5 +26,5 @@ class RoundedIconButton extends StatelessWidget {
     );
   }
 
-  BorderRadius _borderRadius() => BorderRadius.circular(32.r);
+  BorderRadius _borderRadius() => BorderRadius.circular(32.0);
 }
