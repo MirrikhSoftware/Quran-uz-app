@@ -39,7 +39,7 @@ jobs:
       #   run: flutter analyze
 
   build-android:
-    if: true
+    if: github.repository == 'MirrikhSoftware/Quran-uz-app'
     name: Build android app
     needs: code-analysis-and-testing
     runs-on: ubuntu-latest

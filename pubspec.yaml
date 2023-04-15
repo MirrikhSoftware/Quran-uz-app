@@ -18,6 +18,7 @@ dependencies:
   flutter_svg: ^1.0.3
   share_plus: ^4.0.10+1
   converter_uz: ^1.0.1
+  flutter_native_splash: ^2.2.19
 
 dev_dependencies:
   flutter_test:
