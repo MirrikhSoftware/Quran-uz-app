@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final QuranUz quranUz = QuranUz();
 
     Map<int, VerseModel> entries = {};
-    for (var verse in quranUz.verses) {
+    for (var verse in quranUz.verseList) {
       VerseModel verseModel = VerseModel.fromJson(verse.toJson());
       entries[verseModel.key] = verseModel;
     }

@@ -564,10 +564,10 @@ packages:
     dependency: "direct main"
     description:
       name: quran_uz
-      sha256: "26d79d23a96b84c6d36afa20a18d66aefa944aefb51e70dc30dc7598b7c4ca4f"
+      sha256: "86c4909e62eb2fd8a6ad9c8c96bae7e94e2c88e5ab670305a82e7b9b3d15868d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.5"
   share_plus:
     dependency: "direct main"
     description:

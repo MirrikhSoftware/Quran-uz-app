@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  quran_uz: any
+  quran_uz: 1.0.5
 
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.1
