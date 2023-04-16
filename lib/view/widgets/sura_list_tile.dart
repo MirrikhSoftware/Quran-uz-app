@@ -29,11 +29,11 @@ class SuraListTile extends StatelessWidget {
         ],
       ),
       title: Text(
-        surah.nameUz!,
+        surah.nameUz,
       ),
       subtitle: Text('${surah.versesCount} оят'),
       trailing: Text(
-        surah.nameAr!,
+        surah.nameAr,
         style: const TextStyle(
           fontFamily: AppFonts.meQuran,
           color: AppColors.indigo,

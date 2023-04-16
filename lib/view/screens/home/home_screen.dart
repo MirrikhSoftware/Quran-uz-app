@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               showSearch(
                 context: context,
-                delegate: AppSearchDelegate(HiveBoxes.verseBox.values.toList()),
+                delegate: AppSearchDelegate(_quranUz.verseList),
               );
             },
           ),

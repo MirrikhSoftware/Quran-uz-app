@@ -4,6 +4,5 @@ import 'package:quran/models/verse/verse_model.dart';
 
 class HiveBoxes {
   static Box<VerseModel> get verseBox => Hive.box(HiveBoxNames.verses);
-  static Box<dynamic> get prefsBox => Hive.box(HiveBoxNames.prefs);
-
+  static Box<dynamic> get prefsBox => Hive.box(HiveBoxNames.pref);
 }

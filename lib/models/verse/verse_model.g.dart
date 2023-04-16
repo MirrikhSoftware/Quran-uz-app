@@ -16,26 +16,19 @@ class VersionModelAdapter extends TypeAdapter<VerseModel> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return VerseModel(
-      id: fields[0] as int?,
-      paraNo: fields[1] as int?,
-      suraId: fields[2] as int?,
-      verseId: fields[3] as int?,
-      plain: fields[4] as String?,
-      arabic: fields[5] as String?,
-      meaning: fields[6] as String?,
-      isSaved: fields[7] as bool,
-    );
+    return VerseModel()..isSaved = fields[7] as bool;
   }
 
   @override
   void write(BinaryWriter writer, VerseModel obj) {
     writer
       ..writeByte(8)
+      ..writeByte(7)
+      ..write(obj.isSaved)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.paraNo)
+      ..write(obj.juzNo)
       ..writeByte(2)
       ..write(obj.suraId)
       ..writeByte(3)
@@ -43,11 +36,9 @@ class VersionModelAdapter extends TypeAdapter<VerseModel> {
       ..writeByte(4)
       ..write(obj.plain)
       ..writeByte(5)
-      ..write(obj.arabic)
-      ..writeByte(6)
       ..write(obj.meaning)
-      ..writeByte(7)
-      ..write(obj.isSaved);
+      ..writeByte(6)
+      ..write(obj.arabic);
   }
 
   @override

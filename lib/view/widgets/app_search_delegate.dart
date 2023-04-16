@@ -6,7 +6,7 @@ import 'package:quran/view/widgets/sura_list_tile.dart';
 import 'package:quran/view/widgets/verse_list_tile.dart';
 
 class AppSearchDelegate extends SearchDelegate {
-  List<VerseModel> verses;
+  List<Verse> verses;
   AppSearchDelegate(this.verses);
 
   final QuranUz _quranUz = QuranUz();
@@ -61,7 +61,7 @@ class AppSearchDelegate extends SearchDelegate {
 
   Widget _showResult() => FutureBuilder(
         future: _getFoundedItems(),
-        builder: (context, AsyncSnapshot<List<VerseModel>> snapshot) {
+        builder: (context, AsyncSnapshot<List<Verse>> snapshot) {
           if (query.isEmpty) {
             return const SizedBox();
           }
@@ -70,11 +70,11 @@ class AppSearchDelegate extends SearchDelegate {
           }
 
           if (snapshot.hasData) {
-            List<VerseModel> foundVerses = snapshot.requireData;
+            List<Verse> foundVerses = snapshot.requireData;
             return ListView.builder(
               itemCount: foundVerses.length,
               itemBuilder: (context, index) {
-                VerseModel verse = foundVerses[index];
+                Verse verse = foundVerses[index];
                 bool isTheSame = true;
                 if (index == 0) {
                   isTheSame = false;
@@ -82,7 +82,7 @@ class AppSearchDelegate extends SearchDelegate {
                   isTheSame = verse.suraId == foundVerses[index - 1].suraId;
                 }
                 if (!isTheSame) {
-                  Sura sura = _quranUz.getSuraById(verse.suraId!);
+                  Sura sura = _quranUz.getSuraById(verse.suraId);
                   return Column(
                     children: [
                       Container(
@@ -105,10 +105,10 @@ class AppSearchDelegate extends SearchDelegate {
         },
       );
 
-  Future<List<VerseModel>> _getFoundedItems() async {
+  Future<List<Verse>> _getFoundedItems() async {
     final target = query.toUpperCase();
-    List<VerseModel> foundedItems = verses.where((verse) {
-      if (verse.meaning!.toUpperCase().contains(target)) {
+    List<Verse> foundedItems = verses.where((verse) {
+      if (verse.meaning.toUpperCase().contains(target)) {
         return true;
       }
       return false;

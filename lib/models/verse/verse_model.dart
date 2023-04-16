@@ -1,6 +1,7 @@
-import 'package:hive/hive.dart';
+import 'package:quran/core/core.dart';
 import 'package:quran/hive_helper/hive_types.dart';
 import 'package:quran/hive_helper/hive_adapters.dart';
+import 'package:quran_uz/src/models/audio_model.dart';
 
 part 'verse_model.g.dart';
 
@@ -8,94 +9,51 @@ part 'verse_model.g.dart';
   typeId: HiveTypes.verseModel,
   adapterName: HiveAdapters.verseModel,
 )
-class VerseModel extends HiveObject {
-  VerseModel({
-    this.id,
-    this.paraNo,
-    this.suraId,
-    this.verseId,
-    this.plain,
-    this.arabic,
-    this.meaning,
-    this.isSaved = false,
-  }) {
-    id = id;
-    paraNo = paraNo;
-    suraId = suraId;
-    verseId = verseId;
-    plain = plain;
-    arabic = arabic;
-    meaning = meaning;
-    isSaved = isSaved;
-  }
-
-  VerseModel.fromJson(dynamic json) {
-    id = json['id'];
-    paraNo = json['para_no'];
-    suraId = json['sura_id'];
-    verseId = json['verse_id'];
-    plain = json['plain'];
-    arabic = json['arabic'];
-    meaning = json['meaning'];
-    isSaved = json['is_saved'] ?? false;
-  }
-
+class VerseModel extends Verse with HiveObjectMixin {
+  @override
   @HiveField(0)
-  int? id;
+  int get id => super.id;
 
+  @override
   @HiveField(1)
-  int? paraNo;
+  int get juzNo => super.juzNo;
 
+  @override
   @HiveField(2)
-  int? suraId;
+  int get suraId => super.suraId;
 
+  @override
   @HiveField(3)
-  int? verseId;
+  int get verseId => super.verseId;
 
+  @override
   @HiveField(4)
-  String? plain;
+  String get plain => super.plain;
 
+  @override
   @HiveField(5)
-  String? arabic;
+  String get meaning => super.meaning;
 
+  @override
   @HiveField(6)
-  String? meaning;
+  String get arabic => super.arabic;
 
   @HiveField(7)
   bool isSaved = false;
 
-  VerseModel copyWith({
-    int? id,
-    int? paraNo,
-    int? suraId,
-    int? verseId,
-    String? plain,
-    String? arabic,
-    String? meaning,
-  }) =>
-      VerseModel(
-        id: id,
-        paraNo: paraNo,
-        suraId: suraId,
-        verseId: verseId,
-        plain: plain,
-        arabic: arabic,
-        meaning: meaning,
-      );
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['para_no'] = paraNo;
-    map['sura_id'] = suraId;
-    map['verse_id'] = verseId;
-    map['plain'] = plain;
-    map['arabic'] = arabic;
-    map['meaning'] = meaning;
-    map['is_saved'] = isSaved;
-    return map;
-  }
+  // @override
+  // @HiveField(8)
+  // AudioModel get audio => super.audio;
 
   @override
   get key => id;
+}
+
+class AudioModelX extends AudioModel {
+  AudioModelX({
+    required super.low,
+    required super.medium,
+    required super.lowSecondary,
+    required super.mediumSecondary,
+  });
 }

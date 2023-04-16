@@ -4,10 +4,11 @@ import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
 import 'package:quran/view/widgets/highlighted_text_widget.dart';
+import 'package:quran_uz/quran_uz.dart';
 import 'package:share_plus/share_plus.dart';
 
 class VerseListTile extends StatelessWidget {
-  final VerseModel verse;
+  final Verse verse;
   final String query;
   const VerseListTile({
     Key? key,
@@ -18,7 +19,7 @@ class VerseListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppFormatter formatter = AppFormatter();
-    String number = formatter.numberFormat(verse.verseId!);
+    String number = formatter.numberFormat(verse.verseId);
     String formatted = '\uFD3F$number\uFD3E';
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -28,7 +29,7 @@ class VerseListTile extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Text(
-              '${verse.arabic!.replaceFirst('\n', '')} $formatted',
+              '${verse.arabic.replaceFirst('\n', '')} $formatted',
               textAlign: TextAlign.start,
               locale: const Locale('ar'),
               textDirection: TextDirection.rtl,
@@ -59,13 +60,13 @@ class VerseListTile extends StatelessWidget {
               const SizedBox(width: 12.0),
 
               // SAVE
-              RoundedIconButton(
-                icon: verse.isSaved ? Icons.bookmark : Icons.bookmark_border,
-                onPressed: () async {
-                  verse.isSaved = !verse.isSaved;
-                  await verse.save();
-                },
-              )
+              // RoundedIconButton(
+              //   icon: verse.isSaved ? Icons.bookmark : Icons.bookmark_border,
+              //   onPressed: () async {
+              //     verse.isSaved = !verse.isSaved;
+              //     await verse.save();
+              //   },
+              // )
             ],
           )
         ],
