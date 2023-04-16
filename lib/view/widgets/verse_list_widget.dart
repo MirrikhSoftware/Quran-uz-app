@@ -27,8 +27,9 @@ class VerseListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       itemCount: verseList.length,
+      separatorBuilder: (context, index) => const Divider(height: 24.0),
       itemBuilder: (context, index) {
         Verse verse = verseList[index];
         bool isTheSame = true;

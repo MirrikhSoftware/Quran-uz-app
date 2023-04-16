@@ -31,7 +31,7 @@ class JuzListWidget extends StatelessWidget {
         JuzModel juz = juzList[index];
         return ListTile(
           leading: StarWidget(content: juz.index.toString()),
-          title: Text(juz.start?.name ?? ''),
+          title: Text('${juz.start?.name} сураси'),
           subtitle: Text('${juz.start?.verse} оят дан бошланади'),
           onTap: () {
             AppNavigator.push(JuzScreen(juz: juz));

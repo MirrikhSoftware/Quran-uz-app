@@ -67,6 +67,16 @@ class AppTheme {
           overlayColor: MaterialStatePropertyAll<Color>(AppColors.black),
         ),
 
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(
+            fontWeight: FontWeight.w700,
+            color: AppColors.green,
+          ),
+          titleMedium: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+
         scrollbarTheme: ScrollbarThemeData(
             interactive: true,
             crossAxisMargin: 6.0,
