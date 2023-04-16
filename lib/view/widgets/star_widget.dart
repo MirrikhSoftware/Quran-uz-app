@@ -23,7 +23,11 @@ class StarWidget extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        SvgPicture.asset(AppIcons.hexagon, color: AppColors.indigo),
+        SvgPicture.asset(
+          AppIcons.hexagon,
+          colorFilter:
+              const ColorFilter.mode(AppColors.indigo, BlendMode.srcIn),
+        ),
         Text(content)
       ],
     );

@@ -5,7 +5,6 @@ import 'package:quran/view/screens/home/components/juz_list_widget.dart';
 import 'package:quran/view/screens/home/components/sura_list_widget.dart';
 import 'package:quran/view/widgets/app_search_delegate.dart';
 import 'package:quran/view/widgets/buttons/app_icon_button.dart';
-import 'package:quran/view/widgets/sura_list_tile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

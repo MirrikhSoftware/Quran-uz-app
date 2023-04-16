@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/core.dart';
 import 'package:quran/routes/app_navigator.dart';
-import 'package:quran/view/widgets/sura_list_tile.dart';
-import 'package:quran/view/widgets/verse_list_tile.dart';
 import 'package:quran/view/widgets/verse_list_widget.dart';
 
 class AppSearchDelegate extends SearchDelegate {
   List<Verse> verses;
   AppSearchDelegate(this.verses);
 
-  final QuranUz _quranUz = QuranUz();
   @override
   String? get searchFieldLabel => "Қидирув";
 

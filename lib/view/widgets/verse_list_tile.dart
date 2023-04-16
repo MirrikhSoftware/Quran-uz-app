@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/components/app_formatter.dart';
 import 'package:quran/core/theme/app_fonts.dart';
-import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/view/widgets/buttons/rounded_icon_button.dart';
 import 'package:quran/view/widgets/highlighted_text_widget.dart';
 import 'package:quran_uz/quran_uz.dart';

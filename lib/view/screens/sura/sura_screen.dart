@@ -55,7 +55,10 @@ class _SuraScreenState extends State<SuraScreen> {
               padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
               child: SvgPicture.asset(
                 AppImages.basmalah,
-                color: AppColors.black,
+                colorFilter: const ColorFilter.mode(
+                  AppColors.black,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
           ),
