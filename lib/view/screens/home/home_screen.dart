@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Қуръони карим'),
+        title: const Text(AppStrings.quranKarim),
         actions: [
           AppIconButton(
             icon: CupertinoIcons.search,
@@ -41,6 +41,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             },
           ),
         ],
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: const [
+            Tab(text: AppStrings.suras),
+            Tab(text: AppStrings.juzs),
+            Tab(text: AppStrings.bookmarks),
+          ],
+        ),
       ),
       backgroundColor: AppColors.white,
       body: TabBarView(

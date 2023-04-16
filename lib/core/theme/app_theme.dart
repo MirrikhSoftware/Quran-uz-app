@@ -48,8 +48,23 @@ class AppTheme {
           backgroundColor: AppColors.indigo,
           elevation: 0,
           iconTheme: IconThemeData(color: AppColors.white),
-          systemOverlayStyle:
-              SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.light,
+          ),
+        ),
+
+        tabBarTheme: const TabBarTheme(
+          indicatorColor: AppColors.white,
+          dividerColor: AppColors.black,
+          indicator: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: AppColors.white,
+                width: 3.0,
+              ),
+            ),
+          ),
+          overlayColor: MaterialStatePropertyAll<Color>(AppColors.black),
         ),
 
         scrollbarTheme: ScrollbarThemeData(

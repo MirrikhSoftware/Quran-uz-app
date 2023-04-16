@@ -3,6 +3,7 @@ import 'package:quran/core/core.dart';
 import 'package:quran/routes/app_navigator.dart';
 import 'package:quran/view/widgets/sura_list_tile.dart';
 import 'package:quran/view/widgets/verse_list_tile.dart';
+import 'package:quran/view/widgets/verse_list_widget.dart';
 
 class AppSearchDelegate extends SearchDelegate {
   List<Verse> verses;
@@ -58,53 +59,18 @@ class AppSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) => _showResult();
 
-  Widget _showResult() => FutureBuilder(
-        future: _getFoundedItems(),
-        builder: (context, AsyncSnapshot<List<Verse>> snapshot) {
-          if (query.isEmpty) {
-            return const SizedBox();
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: Text('Юкланяпти'));
-          }
+  Widget _showResult() {
+    List<Verse> foundVerses = _getFoundedItems();
+    if (foundVerses.isEmpty) {
+      return const Center(child: Text('Топилмади'));
+    }
+    return VerseListWidget(
+      verseList: foundVerses,
+      query: query,
+    );
+  }
 
-          if (snapshot.hasData) {
-            List<Verse> foundVerses = snapshot.requireData;
-            return ListView.builder(
-              itemCount: foundVerses.length,
-              itemBuilder: (context, index) {
-                Verse verse = foundVerses[index];
-                bool isTheSame = true;
-                if (index == 0) {
-                  isTheSame = false;
-                } else {
-                  isTheSame = verse.suraId == foundVerses[index - 1].suraId;
-                }
-                if (!isTheSame) {
-                  Sura sura = _quranUz.getSuraById(verse.suraId);
-                  return Column(
-                    children: [
-                      Container(
-                          color: AppColors.primary.withOpacity(.1),
-                          margin: const EdgeInsets.symmetric(vertical: 12.0),
-                          child: SuraListTile(surah: sura)),
-                      VerseListTile(verse: verse, query: query),
-                    ],
-                  );
-                }
-                return VerseListTile(
-                  verse: verse,
-                  query: query,
-                  key: ValueKey(verse.id),
-                );
-              },
-            );
-          }
-          return const SizedBox();
-        },
-      );
-
-  Future<List<Verse>> _getFoundedItems() async {
+  List<Verse> _getFoundedItems() {
     final target = query.toUpperCase();
     List<Verse> foundedItems = verses.where((verse) {
       if (verse.meaning.toUpperCase().contains(target)) {
