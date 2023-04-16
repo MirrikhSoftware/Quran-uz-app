@@ -12,6 +12,7 @@ class HiveInit {
     await Hive.initFlutter(path);
 
     Hive.registerAdapter(VersionModelAdapter());
+    Hive.registerAdapter(AudioModelAdapter());
 
     await Hive.openBox<VerseModel>(HiveBoxNames.verses);
     await Hive.openBox<dynamic>(HiveBoxNames.pref);

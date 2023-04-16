@@ -16,12 +16,12 @@ class RoundedIconButton extends StatelessWidget {
       onTap: onPressed,
       borderRadius: _borderRadius(),
       child: Container(
-        child: Icon(icon, size: 18.0),
         padding: const EdgeInsets.all(4.0),
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.indigo, width: 2.0),
           borderRadius: _borderRadius(),
         ),
+        child: Icon(icon, size: 18.0),
       ),
     );
   }

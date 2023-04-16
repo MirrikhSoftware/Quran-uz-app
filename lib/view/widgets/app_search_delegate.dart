@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/core.dart';
-import 'package:quran/models/verse/verse_model.dart';
 import 'package:quran/routes/app_navigator.dart';
 import 'package:quran/view/widgets/sura_list_tile.dart';
 import 'package:quran/view/widgets/verse_list_tile.dart';

@@ -58,15 +58,6 @@ class VerseListTile extends StatelessWidget {
               ),
 
               const SizedBox(width: 12.0),
-
-              // SAVE
-              // RoundedIconButton(
-              //   icon: verse.isSaved ? Icons.bookmark : Icons.bookmark_border,
-              //   onPressed: () async {
-              //     verse.isSaved = !verse.isSaved;
-              //     await verse.save();
-              //   },
-              // )
             ],
           )
         ],

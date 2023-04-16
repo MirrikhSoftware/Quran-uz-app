@@ -4,6 +4,7 @@ import 'package:quran/core/core.dart';
 import 'package:quran/core/theme/app_fonts.dart';
 import 'package:quran/routes/routes.dart';
 import 'package:quran/view/screens/screens.dart';
+import 'package:quran/view/widgets/star_widget.dart';
 
 class SuraListTile extends StatelessWidget {
   final Sura surah;
@@ -21,16 +22,8 @@ class SuraListTile extends StatelessWidget {
           child: const SuraScreen(),
         ));
       },
-      leading: Stack(
-        alignment: Alignment.center,
-        children: [
-          SvgPicture.asset(AppIcons.hexagon, color: AppColors.indigo),
-          Text(surah.id.toString())
-        ],
-      ),
-      title: Text(
-        surah.nameUz,
-      ),
+      leading: StarWidget(content: surah.id.toString()),
+      title: Text(surah.nameUz),
       subtitle: Text('${surah.versesCount} оят'),
       trailing: Text(
         surah.nameAr,

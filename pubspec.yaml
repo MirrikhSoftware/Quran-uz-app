@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  quran_uz: ^2.2.0
+  quran_uz: ^2.2.1
 
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.1
@@ -19,6 +19,8 @@ dependencies:
   share_plus: ^6.3.2
   converter_uz: ^1.0.1
   flutter_native_splash: ^2.2.19
+  meta: ^1.8.0
+  path_provider: ^2.0.14
 
 dev_dependencies:
   flutter_test:
